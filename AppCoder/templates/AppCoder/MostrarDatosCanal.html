@@ -1,0 +1,22 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+    
+{% block contenidoQueCambia %}
+    
+    
+        <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+        <h1>Ver/Editar Datos Canal</h1>     
+
+    {% for s in datosCanal %}
+        <li>{{s}}</li>  
+        <button>
+            <a href="{% url 'eliminarDatosCanal' s.campo1 %}"> Eliminar </a>
+            <a href="{% url 'editarDatosCanal' s.campo1 %}"> Editar </a>
+        </button>
+    {% endfor %}
+
+    <br>
+    <a href="{% url 'AgregarDatosCanal' %}">Agregar otro DatoCanal</a>
+
+{% endblock %}   
